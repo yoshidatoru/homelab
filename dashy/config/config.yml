@@ -1,0 +1,52 @@
+pageInfo:
+  title: Home Lab
+appConfig:
+  theme: night-bat
+  layout: auto
+  iconSize: small
+  customColors:
+    night-bat:
+      primary: '#ebb75c'
+      background: '#252931'
+      background-darker: '#303540'
+    material-dark-original:
+      primary: '#e7a254'
+      background: '#141b33'
+      background-darker: '#f5f5f5'
+sections:
+  - name: Productivity
+    displayData:
+      collapsed: false
+      cols: 2
+      sortBy: default
+      rows: 1
+      hideForGuests: false
+    items:
+      - title: Archive Box
+        description: Web site archiving
+        icon: fas fa-rocket
+        id: 0_1302_archivebox
+      - title: Baserow
+        description: Feature-rich dynamic tables (similar to Airtable)
+        icon: png/3cx.png
+        id: 1_1302_baserow
+    widgets:
+      - type: clock
+        options:
+          timeZone: Europe/Madrid
+          format: en-GB
+          hideDate: false
+        id: 0_1302_clock
+      - type: gl-current-cpu
+        options:
+          hostname: http://10.21.1.21:61208
+        id: 1_1302_glcurrentcpu
+  - name: Price
+    icon: fab fa-btc
+    displayData:
+      rows: 2
+    widgets:
+      - type: crypto-watch-list
+        options:
+          limit: 1
+        id: 0_1159_cryptowatchlist
