@@ -1,3 +1,4 @@
 immich/.env
 nginx-proxy-manager/data/*
 nginx-proxy-manager/letsencrypt/*
+Adguard/*
