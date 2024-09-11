@@ -1,0 +1,15 @@
+version: '2'
+services:
+  filegator:
+    build: .
+    image: filegator/filegator:latest
+    restart: always
+    ports:
+      - "8099:8080"
+    volumes:
+      - $FILEGATOR-PATH:/var/www/filegator/repository
+      - $FILEGATOR-PVT-PATH:/var/www/filegator/private
+
+volumes:
+  repository:
+  private:
