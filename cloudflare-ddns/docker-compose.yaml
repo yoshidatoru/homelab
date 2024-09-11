@@ -1,0 +1,46 @@
+version: "2"
+services:
+  jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - PROXIED=true
+
+  wg-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=wg
+      - PROXIED=false
+
+  jws-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=jws
+      - PROXIED=true
+
+  bw-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=bw
+      - PROXIED=true
+
+  immich-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=immich
+      - PROXIED=true
+
