@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  vaultwarden:
+    restart: always
+    container_name: $container_name
+    image: vaultwarden/server:latest
+    volumes:
+      - VaultWarden:/data
+    ports:
+      - 8021:80
+    environment:
+      # - SMTP_HOST=smtp.office365.com #change this to your smtp server
+      # - SMTP_FROM=$SMTP_FROM #change this to your smtp from address
+      # - SMTP_FROM_NAME=$SMTP_FROM_NAME #change this to your smtp from name
+      # - SMTP_SECURITY=starttls #change this to your smtp security
+      # - SMTP_PORT=587 #change this to your smtp port
+      # - SMTP_USERNAME=$SMTP_USERNAME #change this to your smtp username
+      # - SMTP_PASSWORD=$SMTP_PASSWORD # Aquí debes poner la contraseña de tu correo
+      # - SMTP_TIMEOUT=30
+      # - SMTP_AUTH_MECHANISM="Plain","Login"
+      - LOGIN_RATELIMIT_MAX_BURST=10
+      - LOGIN_RATELIMIT_SECONDS=60
+      - DOMAIN=https://bw.jonyservices.com #change this to your domain
+      - INVITATION_ORG_NAME=jonyservices
+      - INVITATIONS_ALLOWED=false
+      - ADMIN_TOKEN=$ADMIN_TOKEN # token
+      - SIGNUPS_ALLOWED=true #change this to false to disable signups
+      - SIGNUPS_DOMAINS_WHITELIST=jonyservices.com
+      - SIGNUPS_VERIFY=false
+      - SIGNUPS_VERIFY_RESEND_TIME=3600
+      - SIGNUPS_VERIFY_RESEND_LIMIT=6
+      - EMERGENCY_ACCESS_ALLOWED=true
+      - SENDS_ALLOWED=true
+      - WEB_VAULT_ENABLED=true
+volumes:
+  VaultWarden: # portainer volume
+    external: false
