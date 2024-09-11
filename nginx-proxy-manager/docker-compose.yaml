@@ -9,9 +9,9 @@ services:
       - 8181:81
       - 443:443
     volumes:
-      - /home/jony/docker-apps/nginx-proxy-manager/data:/data
-      - /home/jony/docker-apps/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
-      - /home/jony/docker-apps/nginx-proxy-manager/_hsts.conf:/app/templates/_hsts.conf:ro
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+      - ./_hsts.conf:/app/templates/_hsts.conf:ro
 
   goaccess:
     image: "xavierh/goaccess-for-nginxproxymanager:latest"
