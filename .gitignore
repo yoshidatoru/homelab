@@ -1,1 +1,5 @@
 immich/.env
+nginx-proxy-manager/data/database.sqlite
+nginx-proxy-manager/data/keys.json
+nginx-proxy-manager/data/logs/fallback_access.log
+nginx-proxy-manager/data/logs/fallback_error.log
