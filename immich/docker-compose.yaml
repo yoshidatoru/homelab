@@ -31,10 +31,6 @@ services:
     restart: always
     healthcheck:
       disable: false
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
 
   immich-machine-learning:
     container_name: immich_machine_learning
@@ -49,10 +45,6 @@ services:
     restart: always
     healthcheck:
       disable: false
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
 
   redis:
     container_name: immich_redis
@@ -60,10 +52,6 @@ services:
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
 
   database:
     container_name: immich_postgres
