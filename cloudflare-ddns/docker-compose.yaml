@@ -44,3 +44,11 @@ services:
       - SUBDOMAIN=immich
       - PROXIED=true
 
+  dash-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=dash
+      - PROXIED=true
