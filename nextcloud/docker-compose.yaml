@@ -1,16 +1,12 @@
 version: '3'
 
-volumes:
-  nextcloud:
-  ncdb:
-
 services:
   ncdb:
-    image: mariadb
+    image: mariadb:10.6
     restart: always
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
-      - ncdb:/var/lib/mysql
+      - $NC_DB_PATH:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
@@ -25,7 +21,7 @@ services:
     links:
       - ncdb
     volumes:
-      - nextcloud:/var/www/html
+      - $NC_DATA_PATH:/var/www/html
     environment:
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_DATABASE=nextcloud
