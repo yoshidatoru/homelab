@@ -21,7 +21,7 @@ services:
     image: nextcloud
     restart: always
     ports:
-      - 8080:80
+      - 8282:80
     links:
       - db
     volumes:
