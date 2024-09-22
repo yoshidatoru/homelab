@@ -52,3 +52,12 @@ services:
       - ZONE=jonyservices.com
       - SUBDOMAIN=dash
       - PROXIED=true
+
+  nc-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=nc
+      - PROXIED=true
