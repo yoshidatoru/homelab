@@ -17,7 +17,7 @@ sections:
   - name: Productivity
     displayData:
       collapsed: false
-      cols: 2
+      cols: 1
       sortBy: default
       rows: 1
       hideForGuests: false
@@ -39,14 +39,18 @@ sections:
         id: 0_1302_clock
       - type: gl-current-cpu
         options:
-          hostname: http://10.21.1.21:61208
+          hostname: http://10.21.1.50:61208
         id: 1_1302_glcurrentcpu
   - name: Price
     icon: fab fa-btc
     displayData:
-      rows: 2
+      rows: 1
+      sortBy: default
+      cols: 1
+      collapsed: false
+      hideForGuests: false
     widgets:
       - type: crypto-watch-list
         options:
           limit: 1
-        id: 0_1159_cryptowatchlist
+        id: 0_499_cryptowatchlist
