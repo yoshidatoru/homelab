@@ -13,6 +13,10 @@ services:
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
 
+  redis:
+    image: redis:alpine
+    restart: always
+
   app:
     image: nextcloud
     restart: always
@@ -29,3 +33,13 @@ services:
       - MYSQL_HOST=ncdb
     depends_on:
       - ncdb
+  
+  cron:
+    image: nextcloud:apache
+    restart: always
+    volumes:
+      - $NC_DATA_PATH:/var/www/html:z
+    entrypoint: /cron.sh
+    depends_on:
+      - db
+      - redis
