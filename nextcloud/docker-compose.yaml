@@ -41,5 +41,5 @@ services:
       - $NC_DATA_PATH:/var/www/html:z
     entrypoint: /cron.sh
     depends_on:
-      - db
+      - ncdb
       - redis
