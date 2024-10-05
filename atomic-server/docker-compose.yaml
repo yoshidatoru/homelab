@@ -1,0 +1,8 @@
+services:
+  atomic-server:
+    image: joepmeneer/atomic-server
+    container_name: atomic-server
+    ports:
+      - 70:80
+    volumes:
+      - $PATH:/atomic-storage
