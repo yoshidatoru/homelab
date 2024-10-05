@@ -7,4 +7,4 @@ services:
     ports:
       - 70:80
     volumes:
-      - $PATH:/atomic-storage
+      - $ATOMIC_PATH:/atomic-storage
