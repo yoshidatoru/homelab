@@ -3,4 +3,3 @@ nginx-proxy-manager/data/*
 nginx-proxy-manager/letsencrypt/*
 Adguard/*
 dashy/config/config.yml
-atomic-server/.env
