@@ -62,11 +62,11 @@ services:
       - SUBDOMAIN=nc
       - PROXIED=true
 
-  atomic-jonyservices-com:
+  cf-jonyservices-com:
     image: oznu/cloudflare-ddns:latest
     restart: always
     environment:
       - API_KEY=$CF_KEY
       - ZONE=jonyservices.com
-      - SUBDOMAIN=atomic
+      - SUBDOMAIN=cf
       - PROXIED=true
