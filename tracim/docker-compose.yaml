@@ -13,8 +13,8 @@ services:
       DATABASE_NAME: tracim
       TRACIM_WEBSITE__BASE_URL: http://10.21.1.50:8424
     volumes:
-      - ~/tracim/etc:/etc/tracim
-      - ~/tracim/var:/var/tracim
+      - $TRACIM_PATH/etc:/etc/tracim
+      - $TRACIM_PATH/var:/var/tracim
     depends_on:
       - postgres
 
