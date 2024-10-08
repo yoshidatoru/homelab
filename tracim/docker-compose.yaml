@@ -1,0 +1,31 @@
+version: '3'
+services:
+  tracim:
+    image: algoo/tracim:latest
+    ports:
+      - "8424:80"
+    environment:
+      DATABASE_TYPE: postgresql
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: $DB_USER
+      DATABASE_PASSWORD: $DB_PASSWORD
+      DATABASE_NAME: tracim
+      TRACIM_WEBSITE__BASE_URL: http://10.21.1.50:8424
+    volumes:
+      - /home/jony/homelab-data/tracim/etc:/etc/tracim
+      - /home/jony/homelab-data/tracim/var:/var/tracim
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: tracim
+    volumes:
+      - postgres_tracim_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_tracim_data:
