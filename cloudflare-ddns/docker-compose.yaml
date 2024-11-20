@@ -70,3 +70,12 @@ services:
       - ZONE=jonyservices.com
       - SUBDOMAIN=cf
       - PROXIED=true
+
+  huly-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=huly
+      - PROXIED=true
