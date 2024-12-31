@@ -71,11 +71,11 @@ services:
       - SUBDOMAIN=cf
       - PROXIED=true
 
-  huly-jonyservices-com:
+  btc-jonyservices-com:
     image: oznu/cloudflare-ddns:latest
     restart: always
     environment:
       - API_KEY=$CF_KEY
       - ZONE=jonyservices.com
-      - SUBDOMAIN=huly
+      - SUBDOMAIN=btc
       - PROXIED=true
