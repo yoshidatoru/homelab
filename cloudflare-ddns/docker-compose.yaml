@@ -70,12 +70,4 @@ services:
       - ZONE=jonyservices.com
       - SUBDOMAIN=cf
       - PROXIED=true
-
-  btc-jonyservices-com:
-    image: oznu/cloudflare-ddns:latest
-    restart: always
-    environment:
-      - API_KEY=$CF_KEY
-      - ZONE=jonyservices.com
-      - SUBDOMAIN=btc
-      - PROXIED=true
+      
