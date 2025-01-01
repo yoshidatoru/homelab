@@ -1,0 +1,14 @@
+services:
+  rdiffweb:
+    image: ikus060/rdiffweb
+    container_name: rdiffweb
+    ports:
+      - 8685:8080
+    volumes:
+      - $BACKUP_PATH:/backups
+      - $BACKUP_CONFIG:/etc/rdiffweb
+      - $BACKUP_RESTORES:/restores
+    restart: "unless-stopped"
+    environment:
+      - RDIFFWEB_TEMPDIR=/restores
+      - RDIFFWEB_DISABLE_SSH_KEYS=1
