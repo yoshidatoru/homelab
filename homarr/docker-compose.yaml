@@ -10,6 +10,7 @@ services:
       - $HOMARR_ICONS:/app/public/icons
       - $HOMARR_DATA:/data
       - $HOMARR_LOGO:/app/public/imgs/logo
+      - $HOMARR_FAVICON:/app/public/imgs/favicon/
       - $HOMARR_BACKGROUND:/app/public/backgrounds
     ports:
       - '7575:7575'
