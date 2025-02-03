@@ -1,7 +1,7 @@
 services:
   backend:
     image: jonymaster/homelab-backups-backend:latest
-    container_name: homelab-backups-api
+    container_name: homelab-backups-backend
     ports:
       - "8686:8686"
     volumes:
