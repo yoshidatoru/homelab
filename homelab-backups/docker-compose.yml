@@ -1,13 +1,13 @@
 services:
   backend:
     image: jonymaster/homelab-backups-backend:latest
-    container_name: homelab-backups-backend
+    container_name: homelab-backups-api
     ports:
       - "8686:8686"
     volumes:
       - ${BACKUP_SOURCE}:/app/source:ro
       - ${BACKUP_DESTINATION}:/app/destination
-      - ${APP_DB_PATH}:/app/db
+      - ${APP_DB_PATH}:/app/data
       - /etc/localtime:/etc/localtime:ro
     environment:
       - TZ=Europe/Paris
