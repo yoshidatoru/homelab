@@ -6,7 +6,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - WEBUI_PORT=8080
+      - WEBUI_PORT=8022
       - TORRENTING_PORT=6881
     volumes:
       - $PATH_APPDATA:/config
