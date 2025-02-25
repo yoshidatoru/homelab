@@ -12,7 +12,7 @@ services:
       - $PATH_APPDATA:/config
       - $PATH_DOWNLOADS:/downloads
     ports:
-      - 8080:8080
+      - 8022:8080
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
