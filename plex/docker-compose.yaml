@@ -8,6 +8,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - VERSION=docker
+      - PLEX_CLAIM=$PLEX_CLAIM
     volumes:
       - $PATH_LIB:/config
       - $PATH_SERIES:/tv
