@@ -36,3 +36,13 @@ services:
     volumes:
       - $NGINX_PATH/data/logs:/opt/log:ro #required - path to your Nginx Proxy Manager logs
       #- /path/to/host/custom:/opt/custom #optional, required if using log_type = CUSTOM #change to the location of your choice
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 9999:8080
+    environment:
+      - DOZZLE_LEVEL=info
