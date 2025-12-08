@@ -1,0 +1,21 @@
+version: '3'
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    restart: always
+    # Running as root ensures you can read/write the USB drive AND your home folder
+    user: root
+    ports:
+      - "8080:80"
+    volumes:
+      # --- System Configuration (Don't change these) ---
+      - ./filebrowser.db:/database.db
+      - ./filebrowser.json:/.filebrowser.json
+
+      # --- Your Data Mounts ---
+      # This maps your host Home folder to a folder named "home" in the browser
+      - $HOME:/srv/home
+
+      # This maps your USB drive to a folder named "usb" in the browser
+      - $USB:/srv/usb

@@ -6,3 +6,5 @@ dashy/config/config.yml
 rdiffweb/rdw.db
 rdiffweb/rdw.db-shm
 rdiffweb/rdw.db-wal
+filebrowser/filebrowser.db
+filebrowser/filebrowser.json
