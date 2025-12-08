@@ -1,7 +1,6 @@
 version: '3'
 services:
   filegator:
-    build: .
     image: filegator/filegator:latest
     restart: always
     ports:
