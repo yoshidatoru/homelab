@@ -12,6 +12,6 @@ services:
       - $HOMARR_FAVICON:/app/public/imgs/favicon
       - $HOMARR_BACKGROUND:/app/public/backgrounds
     environment:
-      - SECRET_ENCRYPTION_KEY=${HOMARR_SECRET_KEY}
+      - SECRET_ENCRYPTION_KEY=$HOMARR_SECRET_KEY
     ports:
       - '7575:7575'
