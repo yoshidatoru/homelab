@@ -8,8 +8,3 @@ services:
     volumes:
       - $FILEGATOR-PATH:/var/www/filegator/repository
       - $FILEGATOR-PVT-PATH:/var/www/filegator/private
-
-volumes:
-  repository:
-  private:
-  
