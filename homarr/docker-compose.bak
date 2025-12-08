@@ -1,7 +1,8 @@
+version: '3'
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/homarr-labs/homarr:latest
+    image: ghcr.io/ajnart/homarr:latest
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
@@ -11,7 +12,5 @@ services:
       - $HOMARR_LOGO:/app/public/imgs/logo
       - $HOMARR_FAVICON:/app/public/imgs/favicon
       - $HOMARR_BACKGROUND:/app/public/backgrounds
-    environment:
-      - SECRET_ENCRYPTION_KEY=${HOMARR_SECRET_KEY}
     ports:
       - '7575:7575'
