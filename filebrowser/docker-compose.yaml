@@ -7,7 +7,7 @@ services:
     # Running as root ensures you can read/write the USB drive AND your home folder
     user: root
     ports:
-      - "8080:80"
+      - "8033:80"
     volumes:
       # --- System Configuration (Don't change these) ---
       - ./filebrowser.db:/database.db
