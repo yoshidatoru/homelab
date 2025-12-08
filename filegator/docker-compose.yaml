@@ -1,3 +1,4 @@
+version: '3'
 services:
   filegator:
     build: .
@@ -6,5 +7,6 @@ services:
     ports:
       - "8099:8080"
     volumes:
-      - $FILEGATOR-PATH:/var/www/filegator/repository
-      - $FILEGATOR-PVT-PATH:/var/www/filegator/private
+      # Changed from -PATH to _PATH
+      - ${FILEGATOR_PATH}:/var/www/filegator/repository
+      - ${FILEGATOR_PVT_PATH}:/var/www/filegator/private
