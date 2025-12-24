@@ -1,0 +1,18 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    ports:
+      - 8096:8096/tcp
+      - 7359:7359/udp
+    volumes:
+      - $JF_CONFIG:/config
+      - $JF_CACHE:/cache
+      - type: bind
+        source: $JF_MEDIA
+        target: /media
+      - type: bind
+        source: $JF_MEDIA2
+        target: /media2
+        read_only: true
+    restart: 'unless-stopped'
