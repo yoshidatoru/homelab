@@ -4,13 +4,8 @@ services:
     image: ghcr.io/homarr-labs/homarr:latest
     restart: unless-stopped
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
-      - $HOMARR_CONFIGS:/app/data/configs
-      - $HOMARR_ICONS:/app/public/icons
-      - $HOMARR_DATA:/data
-      - $HOMARR_LOGO:/app/public/imgs/logo
-      - $HOMARR_FAVICON:/app/public/imgs/favicon
-      - $HOMARR_BACKGROUND:/app/public/backgrounds
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOMARR_DATA:/appdata
     environment:
       - SECRET_ENCRYPTION_KEY=$HOMARR_SECRET_KEY
     ports:
