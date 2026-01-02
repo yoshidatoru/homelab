@@ -11,5 +11,6 @@ services:
       - PGID=1000
       - LOG_LEVEL=debug
       - SECRET_ENCRYPTION_KEY=$HOMARR_SECRET_KEY
+      - NODE_OPTIONS=--network-family-autoselection-attempt-timeout=500
     ports:
       - '7575:7575'
