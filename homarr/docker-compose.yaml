@@ -7,6 +7,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - $HOMARR_DATA:/appdata
     environment:
+      - PUID=1000
+      - PGID=1000
+      - LOG_LEVEL=debug
       - SECRET_ENCRYPTION_KEY=$HOMARR_SECRET_KEY
     ports:
       - '7575:7575'
