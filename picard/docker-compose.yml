@@ -1,0 +1,12 @@
+services:
+  musicbrainz-picard:
+    image: jlesage/musicbrainz-picard
+    ports:
+      - "5800:5800"
+    volumes:
+      - "$PICARD_CONFIG:/config:rw"
+      - "$PICARD_STORAGE:/storage:rw"
+    devices:
+      - "$PICARD_DISK1:/dev/sr0"
+      - "$PICARD_DISK2:/dev/sr1"
+    restart: unless-stopped
