@@ -1,4 +1,3 @@
-version: "2"
 services:
   jonyservices-com:
     image: oznu/cloudflare-ddns:latest
@@ -69,5 +68,14 @@ services:
       - API_KEY=$CF_KEY
       - ZONE=jonyservices.com
       - SUBDOMAIN=cf
+      - PROXIED=true
+
+  secrets-jonyservices-com:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=$CF_KEY
+      - ZONE=jonyservices.com
+      - SUBDOMAIN=secrets
       - PROXIED=true
       
