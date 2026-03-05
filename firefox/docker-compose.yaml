@@ -12,6 +12,6 @@ services:
       - ./config:/config
       - $DOWNLOADS_PATH:/downloads
     ports:
-      - 3101:3000
+      - 3101:3001
     shm_size: "1gb"
     restart: unless-stopped
