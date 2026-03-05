@@ -9,8 +9,8 @@ services:
       - PGID=1000
       - TZ=Etc/UTC # Change to your timezone, e.g., Europe/London
     volumes:
-      - ./config:/config
-      - $DOWNLOADS_PATH:/downloads
+      - $FIREFOX_CONFIG:/config
+      - $FIREFOX_DOWNLOADS:/downloads
     ports:
       - 3101:3001
     shm_size: "1gb"
