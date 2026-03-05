@@ -10,7 +10,7 @@ services:
       - TZ=Etc/UTC # Change to your timezone, e.g., Europe/London
     volumes:
       - ./config:/config
-      - /home/jony/downloads:/downloads
+      - $DOWNLOADS_PATH:/downloads
     ports:
       - 3101:3000
     shm_size: "1gb"
