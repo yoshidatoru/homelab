@@ -8,3 +8,4 @@ rdiffweb/rdw.db-shm
 rdiffweb/rdw.db-wal
 filebrowser/filebrowser.db
 filebrowser/filebrowser.json
+catalogIT/.env
