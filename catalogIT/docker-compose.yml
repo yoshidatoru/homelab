@@ -4,6 +4,9 @@
 #   docker build -t jonymaster/catalogit-api:1.0.0 ./backend
 #   docker build -f frontend/Dockerfile.prod -t jonymaster/catalogit-ui:1.0.0 ./frontend
 #
+# Portainer: add the same variables in the stack Environment (Git deploy omits
+# gitignored `.env`). Local `docker compose` still reads `.env` for ${...} substitution.
+#
 # Copy .env.example to .env on the server and set at least:
 #   DATABASE_URL, JWT_SECRET, INTEGRATION_SECRET_KEY, SCIM_TOKEN,
 #   FRONTEND_URL, PUBLIC_BASE_URL (your public https URLs),
@@ -50,10 +53,31 @@ services:
     restart: unless-stopped
     ports:
       - "${API_PUBLISH:-8000}:8000"
-    env_file:
-      - .env
     environment:
+      # Same keys as Application section in `.env` (no env_file — Portainer Git stacks
+      # do not ship gitignored `.env`).
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      JWT_EXPIRY_HOURS: ${JWT_EXPIRY_HOURS:-8}
+      FRONTEND_URL: ${FRONTEND_URL}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL}
+      INTEGRATION_SECRET_KEY: ${INTEGRATION_SECRET_KEY}
+      SCIM_TOKEN: ${SCIM_TOKEN}
+      ADMIN_DEFAULT_PASSWORD: ${ADMIN_DEFAULT_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_EXTERNAL_ID: ${ADMIN_EXTERNAL_ID}
+      ADMIN_FIRST_NAME: ${ADMIN_FIRST_NAME}
+      ADMIN_LAST_NAME: ${ADMIN_LAST_NAME}
       SEED_SAMPLE_DATA: ${SEED_SAMPLE_DATA:-false}
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+      MINIO_BUCKET_NAME: ${MINIO_BUCKET_NAME}
+      MINIO_USE_SSL: ${MINIO_USE_SSL:-false}
+      CRON_SECRET: ${CRON_SECRET}
+      LOG_FORMAT: ${LOG_FORMAT:-text}
+      AUDIT_RETENTION_DAYS: ${AUDIT_RETENTION_DAYS:-90}
     depends_on:
       db:
         condition: service_healthy
